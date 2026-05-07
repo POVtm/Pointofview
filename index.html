@@ -158,6 +158,76 @@ footer{background:var(--near-black);padding:2.5rem 3.5rem;display:flex;justify-c
 .footer-logo-text{font-size:13px;font-weight:500;color:rgba(255,255,255,0.7)}
 .footer-logo-text span{color:var(--gold)}
 footer .right{font-size:11px;color:rgba(255,255,255,0.3)}
+
+/* ── MOBILE RESPONSIVE ───────────────────────────────────────────── */
+@media (max-width: 768px) {
+
+  /* NAV */
+  nav{padding:0.75rem 1.25rem;flex-wrap:wrap;gap:0.5rem}
+  .logo img{height:70px}
+  .nav-links{display:none}
+
+  /* BANNER */
+  div[style*="height:520px"]{height:280px}
+  div[style*="height:520px"] div[style*="font-size:clamp(2.5rem"]{font-size:1.8rem}
+  div[style*="height:520px"] div[style*="padding:0 4rem"]{padding:0 1.5rem}
+
+  /* HERO */
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero-left{padding:2.5rem 1.5rem}
+  .hero-right{min-height:350px;padding:2rem 1.25rem}
+  .profile-card{max-width:100%}
+
+  /* GOLD STRIP */
+  .gold-strip{flex-direction:column;gap:0.5rem;text-align:center;padding:1rem 1.25rem}
+  .sdot{display:none}
+
+  /* SECTIONS */
+  .section{padding:3rem 1.25rem}
+  .section-title{font-size:1.6rem}
+
+  /* SERVICES GRID */
+  .services-grid{grid-template-columns:1fr}
+
+  /* ICEBERG */
+  .iceberg-section{grid-template-columns:1fr;padding:3rem 1.25rem;gap:2rem}
+  .ice-compare{grid-template-columns:1fr}
+
+  /* PROCESS */
+  .process-section{padding:3rem 1.25rem}
+  .steps-row{grid-template-columns:1fr 1fr;gap:1rem}
+  .steps-row::before{display:none}
+  .deliverables-row{grid-template-columns:1fr}
+
+  /* FOR INDIVIDUALS */
+  div[style*="grid-template-columns:1fr 1fr;gap:3rem"]{grid-template-columns:1fr!important;gap:2rem!important}
+  div[style*="grid-template-columns:1fr 1fr;gap:5rem"]{grid-template-columns:1fr!important;gap:2rem!important}
+
+  /* FOR SMES */
+  div[style*="grid-template-columns:repeat(3,1fr)"]{grid-template-columns:1fr!important}
+
+  /* ABOUT */
+  .about-section{grid-template-columns:1fr}
+  .about-left{padding:2.5rem 1.25rem}
+  .about-right{padding:2.5rem 1.25rem}
+
+  /* CTA */
+  .cta-section{padding:3rem 1.25rem}
+  .cta-section .btn-dark{display:block;text-align:center;margin-bottom:0.75rem;margin-right:0}
+  .cta-section .btn-dark-ghost{display:block;text-align:center}
+
+  /* BUTTONS */
+  .btn-gold{display:block;text-align:center;margin-right:0;margin-bottom:0.75rem}
+  .btn-ghost{display:block;text-align:center}
+  div[style*="display:flex;gap:1rem;align-items:center"]{flex-direction:column!important}
+
+  /* FOOTER */
+  footer{flex-direction:column;text-align:center;padding:1.5rem}
+
+  /* WHEN BOX */
+  .when-box{padding:1.25rem}
+  .roi-bar{padding:1rem}
+}
 </style>
 </head>
 <body>
