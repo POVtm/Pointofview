@@ -167,7 +167,7 @@ footer .right{font-size:11px;color:rgba(255,255,255,0.3)}
 
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:0.5rem;background:none;border:none;flex-shrink:0;z-index:200}
 .hamburger span{width:26px;height:2px;background:var(--near-black);border-radius:2px;display:block}
-.mobile-menu{display:none;flex-direction:column;width:100%;background:var(--beige);border-top:1px solid var(--beige-deeper)}
+.mobile-menu{display:none;flex-direction:column;width:100%;background:var(--beige);border-top:1px solid var(--beige-deeper);position:sticky;top:82px;z-index:999;box-shadow:0 4px 12px rgba(0,0,0,0.08)}
 .mobile-menu a{padding:1rem 1.5rem;font-size:15px;color:var(--near-black);text-decoration:none;border-bottom:1px solid var(--beige-deeper);display:block;font-weight:500}
 .mobile-menu a.nav-cta{color:var(--gold-mid)!important;font-weight:600!important;background:transparent!important;border-radius:0!important;padding:1rem 1.5rem!important}
 .mobile-menu.open{display:flex}
@@ -195,9 +195,8 @@ footer .right{font-size:11px;color:rgba(255,255,255,0.3)}
   /* HERO - hide on mobile since banner covers it */
   .hero{display:none!important}
 
-  /* GOLD STRIP */
-  .gold-strip{flex-direction:column!important;gap:0.6rem!important;text-align:center!important;padding:1.25rem!important}
-  .sdot{display:none!important}
+  /* GOLD STRIP - hide on mobile */
+  .gold-strip{display:none!important}
 
   /* SECTIONS */
   .section{padding:2.5rem 1.25rem!important}
