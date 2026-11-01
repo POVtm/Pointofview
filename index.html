@@ -308,6 +308,29 @@ footer .right{font-size:11px;color:rgba(255,255,255,0.3)}
   .ribbon-title{font-size:2.2rem}
   .ribbon-sub{font-size:15px}
 }
+
+/* Lab Series */
+.lab-section{background:#E6EFEC;padding:5rem 3.5rem;display:grid;grid-template-columns:1fr 1.1fr;gap:3rem;align-items:start}
+.lab-section .section-tag{color:#2F6F73}
+.lab-lead{font-family:'Playfair Display',serif;font-style:italic;font-size:20px;color:#2F6F73;margin-bottom:1rem}
+.lab-p{font-size:15px;color:var(--mid-gray);line-height:1.75;margin-bottom:0.9rem;max-width:520px}
+.lab-small{font-size:14px}
+.lab-topics{display:flex;flex-wrap:wrap;gap:0.5rem;margin:0.5rem 0 1rem}
+.lab-topics span{font-size:12px;background:white;color:#2F6F73;border:1px solid #BFD8D6;border-radius:100px;padding:0.35rem 0.8rem}
+.lab-options{display:flex;flex-direction:column;gap:1.25rem}
+.lab-card{background:white;border-radius:16px;padding:1.75rem;border:1px solid #CFE0DD;border-left:6px solid #2F6F73}
+.lab-card-equip{border-left-color:var(--gold)}
+.lab-card-tag{font-size:11px;text-transform:uppercase;letter-spacing:1.5px;font-weight:600;color:#2F6F73;margin-bottom:0.3rem}
+.lab-card-equip .lab-card-tag{color:#8A6200}
+.lab-card-title{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:var(--near-black);margin-bottom:0.6rem}
+.lab-card p{font-size:14px;color:var(--mid-gray);line-height:1.7;margin-bottom:0.6rem}
+.lab-card p:last-child{margin-bottom:0}
+.lab-footer{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.25rem;border-top:1px solid #BFD8D6;padding-top:2rem}
+.lab-closing{font-family:'Playfair Display',serif;font-style:italic;font-size:17px;color:var(--near-black);max-width:520px}
+@media (max-width:768px){
+  .lab-section{grid-template-columns:1fr;padding:2.75rem 1.25rem;gap:2rem}
+  .lab-footer .btn-gold{white-space:normal;text-align:center}
+}
 </style>
 </head>
 <body>
@@ -455,6 +478,38 @@ footer .right{font-size:11px;color:rgba(255,255,255,0.3)}
         <div class="svc-b"><span class="bdot"></span><span><strong>Review &amp; Refine:</strong> observation of your existing process, with practical improvements to exercises, scoring and delivery</span></div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- LEARNING EXPERIENCE DESIGN -->
+<section class="lab-section" id="learning-labs">
+  <div class="lab-intro">
+    <div class="section-tag">Learning Experience Design</div>
+    <h2 class="section-title">The POV Lab Series</h2>
+    <p class="lab-lead">Learning that connects with real work.</p>
+    <p class="lab-p">We design learning experiences that help people understand themselves, work better together and practise new ways of approaching everyday challenges.</p>
+    <p class="lab-p">Each Lab starts with a question that matters to your organisation. Through practical activities, conversations and reflection, participants explore what happens, try different approaches and identify what they will take into their work.</p>
+    <div class="lab-topics">
+      <span>Collaboration</span><span>Communication</span><span>Responsiveness</span><span>People leadership</span><span>Navigating change</span>
+    </div>
+    <p class="lab-p lab-small">We develop individual modules or connect them into a broader learning journey.</p>
+  </div>
+  <div class="lab-options">
+    <div class="lab-card">
+      <div class="lab-card-tag">Design &amp; Deliver</div>
+      <div class="lab-card-title">We create and facilitate</div>
+      <p>We work with you to define the learning priorities, design the experience and facilitate the session. Participants leave with practical tools, shared understanding and clear actions to try at work.</p>
+    </div>
+    <div class="lab-card lab-card-equip">
+      <div class="lab-card-tag">Design &amp; Equip</div>
+      <div class="lab-card-title">We create; your team facilitates</div>
+      <p>We develop reusable learning modules for your HR, Learning &amp; Development team or internal facilitators to implement.</p>
+      <p>Your delivery pack includes session plans, facilitator guides, presentation slides, activity instructions, participant materials and debrief questions. A facilitator walkthrough and practice session help your team prepare to deliver the experience with confidence.</p>
+    </div>
+  </div>
+  <div class="lab-footer">
+    <p class="lab-closing">Designed around your people, your context and how the learning will be used.</p>
+    <a href="https://bookings.cloud.microsoft/bookwithme/user/dbb37d5699684a3fbde76a75f43e4b06@pointofview-pov.com?anonymous&amp;ismsaljsauthenabled&amp;ep=pcard" target="_blank" rel="noopener" class="btn-gold">Let's discuss what you want your people to be able to do differently →</a>
   </div>
 </section>
 
