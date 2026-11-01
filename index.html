@@ -75,6 +75,22 @@ h1 em{font-style:italic;color:var(--gold-mid)}
 .svc-card:hover{transform:translateY(-4px);box-shadow:0 14px 36px rgba(0,0,0,0.07)}
 .svc-card.featured{border:2px solid var(--gold);background:#FFFDF5}
 .svc-card.svc-wide{grid-column:1/-1}
+/* Service card accents */
+.svc-card{position:relative;overflow:hidden;--acc:#F0B429;--acc-soft:#FDF3D8}
+.svc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:6px;background:var(--acc)}
+.svc-card.svc-c1{--acc:#F0B429;--acc-soft:#FDF3D8}
+.svc-card.svc-c2{--acc:#C8643B;--acc-soft:#F8E4DA}
+.svc-card.svc-c3{--acc:#C89010;--acc-soft:#FDF3D8}
+.svc-card.svc-c4{--acc:#5E8A6E;--acc-soft:#E3EEE6}
+.svc-card.svc-c5{--acc:#2F6F73;--acc-soft:#DDECEC}
+.svc-icon{width:52px;height:52px;border-radius:14px;background:var(--acc-soft);display:flex;align-items:center;justify-content:center;margin:0.5rem 0 1rem}
+.svc-icon svg{width:28px;height:28px;stroke:var(--acc)}
+.svc-card .svc-who{color:var(--acc-text,var(--acc))}
+.svc-card .svc-badge{align-self:flex-start}
+.svc-card .svc-badge.badge-gold{background:var(--acc-soft);color:var(--acc-text,var(--acc))}
+.svc-card.svc-c1{--acc-text:#9A6B00}
+.svc-card.svc-c3{--acc-text:#8A6200}
+.svc-card .bdot{background:var(--acc)!important}
 .svc-badge{display:inline-block;font-size:10px;text-transform:uppercase;letter-spacing:1.2px;font-weight:500;padding:0.2rem 0.6rem;border-radius:100px;margin-bottom:0.75rem}
 .badge-gold{background:var(--gold-light);color:#7A5800}
 .badge-dark{background:var(--near-black);color:var(--gold)}
@@ -354,7 +370,8 @@ footer .right{font-size:11px;color:rgba(255,255,255,0.3)}
   <h2 class="section-title">Assessment built around where you are right now</h2>
   <p class="section-sub">No one grows, leads, or builds in exactly the same way. That is why POV offers five distinct assessment experiences, shaped around your stage, your people, and your goals.</p>
   <div class="services-grid">
-    <div class="svc-card">
+    <div class="svc-card svc-c1">
+      <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 20h10"/><path d="M12 20v-8"/><path d="M12 12c0-4 3-6 7-6 0 4-3 6-7 6z"/><path d="M12 14c0-3-2-5-6-5 0 3 2 5 6 5z"/></svg></div>
       <span class="svc-badge badge-gold">Students &amp; Early Grads</span>
       <div class="svc-who">Fresh Graduates · Career Starters</div>
       <div class="svc-title">POV Early Discovery</div>
@@ -365,7 +382,8 @@ footer .right{font-size:11px;color:rgba(255,255,255,0.3)}
         <div class="svc-b"><span class="bdot"></span>Direct, immediately actionable feedback</div>
       </div>
     </div>
-    <div class="svc-card">
+    <div class="svc-card svc-c2">
+      <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4"/><path d="M5 4h12l-2.5 4L17 12H5"/></svg></div>
       <span class="svc-badge badge-gold">Professionals &amp; Leaders</span>
       <div class="svc-who">Junior to Executive Level</div>
       <div class="svc-title">Professional Leadership Assessment</div>
@@ -376,7 +394,8 @@ footer .right{font-size:11px;color:rgba(255,255,255,0.3)}
         <div class="svc-b"><span class="bdot"></span>POV™ Leadership Report + optional coaching</div>
       </div>
     </div>
-    <div class="svc-card featured">
+    <div class="svc-card featured svc-c3">
+      <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><circle cx="11" cy="9.5" r="2"/><path d="M7.8 14.5c.8-1.5 2-2.2 3.2-2.2s2.4.7 3.2 2.2"/></svg></div>
       <span class="svc-badge badge-dark">SME Owners · Hiring Managers</span>
       <div class="svc-who">Small &amp; Medium Businesses</div>
       <div class="svc-title">POV Recruitment Framework</div>
@@ -387,7 +406,8 @@ footer .right{font-size:11px;color:rgba(255,255,255,0.3)}
         <div class="svc-b"><span class="bdot"></span>Ideal for final-round, high-impact, or leadership transition hires</div>
       </div>
     </div>
-    <div class="svc-card">
+    <div class="svc-card svc-c4">
+      <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M7 21h10"/><path d="M5 7h14"/><path d="M5 7l-3 6a3 3 0 0 0 6 0z"/><path d="M19 7l-3 6a3 3 0 0 0 6 0z"/></svg></div>
       <span class="svc-badge badge-gold">HR Teams · Organisations</span>
       <div class="svc-who">HR Leaders · People Teams</div>
       <div class="svc-title">Candidate Comparison &amp; Team Insights</div>
@@ -398,7 +418,8 @@ footer .right{font-size:11px;color:rgba(255,255,255,0.3)}
         <div class="svc-b"><span class="bdot"></span>Executive summary for decision makers</div>
       </div>
     </div>
-    <div class="svc-card svc-wide">
+    <div class="svc-card svc-wide svc-c5">
+      <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="3"/><circle cx="5" cy="10" r="2.2"/><circle cx="19" cy="10" r="2.2"/><path d="M6.5 20c0-3 2.5-5.5 5.5-5.5s5.5 2.5 5.5 5.5"/><path d="M1.5 18c.3-2 1.7-3.4 3.5-3.6"/><path d="M22.5 18c-.3-2-1.7-3.4-3.5-3.6"/></svg></div>
       <span class="svc-badge badge-gold">Organisations · Hiring Teams</span>
       <div class="svc-who">Role Families · Volume or Cross-Industry Hiring</div>
       <div class="svc-title">Assessment Centre Design &amp; Delivery</div>
