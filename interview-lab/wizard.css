@@ -224,6 +224,9 @@ details{margin-top:var(--space-3)}
 summary{cursor:pointer;font-size:13px;font-weight:600;color:var(--ochre)}
 .detailBody{padding-top:var(--space-3);font-size:13px;line-height:1.7}
 .actions{display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-3)}
+.navIssue{margin-top:var(--space-6);padding:var(--space-3) 18px;background:var(--note);border-left:3px solid var(--gold);font-size:13px;line-height:1.75}
+.navIssue .textButton{display:block;min-height:36px;margin-top:var(--space-1);padding:var(--space-1) 0;text-align:left}
+.navIssue+.navActions{margin-top:var(--space-4)}
 .navActions{display:flex;justify-content:space-between;gap:var(--space-4);margin-top:var(--space-6);padding-top:var(--space-5);border-top:1px solid var(--line)}
 
 /* Competency cards */
@@ -383,7 +386,7 @@ dialog::backdrop{background:#2c2a2666}
     @bottom-right{content:counter(page);font:9pt "DM Sans",Arial,sans-serif;color:#615c54}}
   html{scroll-behavior:auto}
   body{background:var(--white);color:var(--ink);font-size:11pt;line-height:1.6}
-  .siteHeader,footer,#notice,#downloadReady,.downloadLink,.skipLink,.stepper,.topline,.stepHeading,.packActions,.tabs,.navActions,.approvalPanel,.ctaBand,.focusBar,.roundJourney,dialog,.noPrint{display:none!important}
+  .siteHeader,footer,#notice,#downloadReady,.downloadLink,.skipLink,.stepper,.topline,.stepHeading,.packActions,.tabs,.navActions,.navIssue,.approvalPanel,.ctaBand,.focusBar,.roundJourney,dialog,.noPrint{display:none!important}
   main,.downloadedPack main,.singleGuide main{width:auto;max-width:none;margin:0;padding:0}
   .guide{margin:0;padding:0;border:0;background:transparent}
   .guideBrand{padding-bottom:10pt;margin-bottom:14pt;break-inside:avoid}
