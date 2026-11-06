@@ -215,6 +215,9 @@ textarea{min-height:96px;resize:vertical}
 .hint .thaiLine{font-size:13px}
 .hint .textButton{min-height:32px;padding:0 var(--space-1)}
 .warning{margin:var(--space-3) 0;padding:var(--space-3) 18px;background:var(--note);border-left:3px solid var(--gold);font-size:13px;line-height:1.75}
+.optionHint{display:block;font-size:13px;font-weight:400;color:var(--muted)}
+.fileOk{margin:0;font-size:14px;font-weight:600;line-height:1.6;overflow-wrap:anywhere}
+.fileBox .textButton{min-height:36px;margin-top:var(--space-1);padding:var(--space-1) 0}
 .inlineStatus{font-size:13px;color:var(--muted)}
 .inlineStatus:empty{display:none}
 .fileBox{margin-bottom:var(--space-4);padding:var(--space-4);background:var(--paper);border:1px dashed var(--tag-line);border-radius:var(--radius-md)}
@@ -260,6 +263,33 @@ summary{cursor:pointer;font-size:13px;font-weight:600;color:var(--ochre)}
 .listenFor p{margin:var(--space-1) 0 0}
 .listenFor .thaiLine{font-size:13px}
 .listenFor .listenNote{grid-column:1/-1;margin:0;padding-top:var(--space-2);border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+
+/* Step 4: what next */
+.nextChoices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-4);margin-bottom:var(--space-5)}
+.nextChoices .choice{gap:var(--space-3);padding:var(--space-5) 20px}
+.nextChoices .choice strong{font-size:21px}
+.nextChoices .choice strong .thaiLine{font-size:14px}
+.nextChoices .choice.chosen{border-color:var(--ochre);background:var(--note)}
+.shareRow{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:var(--space-3);padding:var(--space-3) 0;border-bottom:1px solid var(--line)}
+.shareRow small{display:block;color:var(--muted)}
+.nextPanel .tiny{margin-top:var(--space-3)}
+.fillNote{max-width:680px}
+.packPreview{margin:var(--space-5) 0;padding:var(--space-4) var(--space-5);background:var(--white);border:1px solid var(--line);border-radius:var(--radius-md)}
+.packPreview>summary{font-size:15px;color:var(--ink)}
+.packPreview[open]>summary{margin-bottom:var(--space-4)}
+.packPreview .guide{margin-top:0;padding:var(--space-5) 0 0;border:0;border-top:1px solid var(--line);border-radius:0}
+.feedbackLine{margin:var(--space-5) 0;font-size:14px;color:var(--muted)}
+.feedbackLine a{color:var(--ochre);font-weight:600;text-underline-offset:3px}
+.suggestLine{margin-bottom:var(--space-3)}
+.compCount{margin-bottom:var(--space-3);padding:var(--space-2) var(--space-3);background:var(--cream);border-radius:var(--radius-sm);font-size:13px;line-height:1.6}
+.compCount .thaiLine{display:inline;margin-left:var(--space-1)}
+.compCount b{margin-left:var(--space-2);white-space:nowrap}
+.side .compCount{margin:var(--space-3) 0 0;background:var(--white);padding:var(--space-2) var(--space-3)}
+.side .compCount b{display:block;margin:var(--space-1) 0 0}
+.side .compCount .thaiLine{display:block;margin:2px 0 0}
+.compCount.over,.side .compCount.over{background:var(--note)}
+.seeAll{display:block;margin:var(--space-5) auto 0}
+.printRating{display:none}
 
 /* The interview pack */
 .packActions{display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-3);margin-bottom:var(--space-3)}
@@ -355,8 +385,12 @@ dialog::backdrop{background:#2c2a2666}
   .journey{gap:var(--space-5)}
   .confidence{gap:var(--space-3)}
   .confidence b{font-size:34px}
-  .stepper{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:var(--space-3);row-gap:0}
-  .stepper button{min-height:56px}
+  .stepper{grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--space-2)}
+  .stepper button{flex-direction:column;align-items:flex-start;gap:2px;min-height:56px;padding:var(--space-2) 0;font-size:11px;line-height:1.3}
+  .stepper button[aria-current=step]{padding-top:6px}
+  .stepper .thaiLine{display:none}
+  .nextChoices{grid-template-columns:1fr}
+  .packPreview{padding:var(--space-3) var(--space-4)}
   .topline{align-items:flex-start;flex-direction:column;gap:var(--space-1)}
   #saveState{text-align:left;font-size:12px}
   .panel,.questionCard{padding:20px var(--space-4)}
@@ -408,6 +442,15 @@ dialog::backdrop{background:#2c2a2666}
   .guide details>summary{display:none}
   .guide details>*:not(summary){display:block!important}
   .guide textarea{display:none}
+  .guide .ratingField{display:none}
+  .printRating{display:flex;align-items:center;gap:12pt;margin-top:6pt;font-size:10.5pt;break-inside:avoid}
+  .printRating b{margin-right:4pt}
+  .tick{display:inline-flex;align-items:center;gap:4pt}
+  .tick::before{content:'';display:inline-block;width:11pt;height:11pt;border:1pt solid var(--ink);border-radius:2pt}
+  .tick.on::before{background:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .nextChoices,.nextPanel,.feedbackLine,.packPreview>summary,.packPreview>.tabs{display:none!important}
+  .packPreview{margin:0;padding:0;border:0;background:transparent}
+  .packPreview .guide{padding:0;border:0}
   .guide .listenFor{margin:6pt 0;padding:6pt 8pt;font-size:9.5pt;line-height:1.4;break-inside:avoid;background:transparent}
   .guide .listenFor .thaiLine{font-size:9pt}
   .guide .listenFor .listenNote{display:none}
@@ -416,7 +459,7 @@ dialog::backdrop{background:#2c2a2666}
   .guideCard .probe p,.guideCard .detailBody p{margin:2pt 0}
   .guideCard .detailBody{padding-top:2pt;line-height:1.4}
   .guideCard select{padding:4pt 6pt;margin-top:2pt}
-  .printText{display:block;min-height:34pt;margin-bottom:5pt;padding:5pt;border:1px solid var(--line);border-radius:var(--radius-sm);white-space:pre-wrap;font-weight:400}
+  .printText{display:block;min-height:52pt;margin-bottom:5pt;padding:5pt;border:1px solid var(--line);border-radius:var(--radius-sm);white-space:pre-wrap;font-weight:400}
   .completeRound{break-before:page;margin:0;padding:0;border:0}
   .completeOverview table,.guideCard table{font-size:9.5pt}
   table tr{break-inside:avoid}
