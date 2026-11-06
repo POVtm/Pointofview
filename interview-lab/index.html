@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Point of View™ / Interview Evidence Lab</title>
+<meta name="description" content="Build a focused interview, one clear step at a time. A bilingual interview planner by Point of View.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 2a48 48 0 0 0 0 96z' fill='%23f0b429'/%3E%3Cpath d='M50 2a48 48 0 0 1 0 96z' fill='%232c2a26'/%3E%3Cpath d='M50 30a20 20 0 0 0 0 40z' fill='%232c2a26'/%3E%3Cpath d='M50 30a20 20 0 0 1 0 40z' fill='%23f0b429'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="wizard.css">
+</head>
+<body>
+<a class="skipLink" href="#app">Skip to interview builder / ข้ามไปวางแผนสัมภาษณ์</a>
+<header class="siteHeader">
+  <div class="headerInner">
+    <button class="brand" id="home" aria-label="Point of View home">
+      <svg class="brandMark" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 2a48 48 0 0 0 0 96z" fill="#f0b429"/><path d="M50 2a48 48 0 0 1 0 96z" fill="#2c2a26"/><path d="M50 30a20 20 0 0 0 0 40z" fill="#2c2a26"/><path d="M50 30a20 20 0 0 1 0 40z" fill="#f0b429"/></svg>
+      <span><strong>Point of View™</strong><small>Interview Evidence Lab</small></span>
+    </button>
+    <div class="headerTools">
+      <label for="uiLanguage" class="srOnly">Language / ภาษา</label>
+      <select id="uiLanguage"><option value="en">English</option><option value="th">ไทย</option><option value="both">English + ไทย</option></select>
+      <button id="savedPlans" class="textButton">My plans</button>
+    </div>
+  </div>
+</header>
+<div id="notice" role="status" aria-live="polite"></div>
+<div id="downloadReady" hidden></div>
+<main id="app"></main>
+<footer><div class="footerInner"><span>Point of View™ / Interview Evidence Lab · <a href="https://pointofview-pov.com">pointofview-pov.com</a></span><span id="footerText">We understand. We don’t judge.</span></div></footer>
+<dialog id="planDialog"><div id="dialogContent"></div></dialog>
+<dialog id="confirmDialog"><div id="confirmContent"></div></dialog>
+<input type="file" id="importFile" accept=".json,application/json" hidden>
+<script src="data.js"></script>
+<script src="content.js"></script>
+<script src="jd-rules.js"></script>
+<script src="vendor/jszip.min.js"></script>
+<script src="extract.js"></script>
+<script src="model.js"></script>
+<script src="wizard.js"></script>
+</body>
+</html>
