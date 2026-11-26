@@ -69,6 +69,25 @@ table.map td:first-child{font-family:'Playfair Display',Georgia,serif;font-size:
 .pilot h3{font-size:26px}.pilot>div>p{font-size:15px;margin-top:10px}
 .weeks{display:grid;gap:10px}.wk{background:#fff;border-radius:4px;padding:14px 16px;display:grid;grid-template-columns:110px 1fr;gap:14px}.wk b{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--terra)}.wk p{font-size:14px;line-height:1.55;color:var(--ink)}.wk span{display:block;font-size:13px;color:var(--muted);margin-top:2px}
 .wk.opt-wk{border:1.5px dashed #c99a87;background:transparent}
+.picker{margin-top:36px;background:#fff;border:1px solid var(--line);border-radius:6px;padding:28px 30px;max-width:860px}
+.picker[hidden],.pk-res[hidden]{display:none!important}
+.pk-q{font-family:'Playfair Display',Georgia,serif;font-size:26px;line-height:1.25;color:var(--ink)}
+.pk-sub{font-size:14px;margin-top:4px}
+.pk-opts{display:flex;flex-direction:column;gap:8px;margin-top:18px}
+.pk-o{font:inherit;font-size:15px;text-align:left;cursor:pointer;background:var(--paper);border:1.5px solid var(--line);border-radius:999px;padding:11px 20px;color:var(--ink);transition:border-color .2s,background .2s}
+.pk-o:hover{border-color:var(--terra)}.pk-o[aria-pressed="true"]{background:var(--terra);border-color:var(--terra);color:#fff}
+.pk-o:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+.pk-res{margin-top:18px;background:var(--tint);border-left:4px solid var(--terra);border-radius:4px;padding:20px 22px;animation:pkIn .4s ease}
+@keyframes pkIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.pk-lab{font-size:11px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--terra)}
+.pk-svc{font-family:'Playfair Display',Georgia,serif;font-size:24px;color:var(--ink);margin-top:4px}
+.pk-st{font-size:13px;margin-top:2px}
+.pk-txt{font-size:15px;color:var(--ink);margin-top:12px}
+.pk-first{font-size:14px;margin-top:8px}
+.pk-res .button{margin-top:16px}
+.pk-all{font-size:13px;margin-top:22px}
+@media(prefers-reduced-motion:reduce){.pk-res{animation:none}}
+@media(max-width:760px){.picker{padding:22px 18px}.pk-o{border-radius:14px;padding:11px 16px}}
 .quote{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:clamp(22px,2.4vw,28px);color:var(--terra);margin-top:16px}
 .contact{background:#edbd54;text-align:center}.contact .eyebrow{color:#5f4408}.contact>.wrap>p{max-width:620px;margin:20px auto;color:#493c28}.contact .actions{justify-content:center}
 .contact .button{background:var(--ink);border-color:var(--ink);color:#fff}.contact .button.secondary{background:transparent;color:var(--ink);border-color:#493c28}
@@ -170,6 +189,8 @@ footer{padding:30px 0;font-size:12px;color:var(--muted)}footer .wrap{display:fle
 </div></div></section>
 
 <section class="section" id="ways"><div class="wrap"><div class="eyebrow">Ways to work together</div><h2>Start with the next decision your team needs to make.</h2><p class="intro">You don’t need to start from stage one. POV can join wherever you are now.</p>
+<div class="picker" id="picker" hidden><p class="pk-q">Where is your organisation today?</p><p class="pk-sub">Tap the one closest to you.</p><div class="pk-opts" id="pk-opts"></div><div class="pk-res" id="pk-res" hidden aria-live="polite"></div></div>
+<p class="pk-all">All five starting points:</p>
 <div class="opts">
 <article class="opt"><div><span class="mini">Where you are now</span><p class="where">No succession plan yet</p></div><div><h3>Full succession planning</h3><p class="st">Stages 1–7</p></div><p class="what">Priority roles, successor readiness, development plans and a review schedule. Can start as a pilot in one business area.</p></article>
 <article class="opt"><div><span class="mini">Where you are now</span><p class="where">Some roles flagged, priorities unclear</p></div><div><h3>Critical role review</h3><p class="st">Stages 1–2</p></div><p class="what">A prioritised role list and a clear view of gaps in interim cover.</p></article>
@@ -209,5 +230,17 @@ function closeMenu(){navigation.classList.remove('open');toggle.setAttribute('ar
 toggle.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')!=='true';navigation.classList.toggle('open',open);toggle.setAttribute('aria-expanded',String(open));});
 navigation.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&navigation.classList.contains('open')){closeMenu();toggle.focus();}});
+const PK=[
+["No succession plan yet","Full succession planning","Stages 1 to 7","Priority roles, successor readiness, development plans and a review schedule.","A good first step: a pilot with 3 to 5 critical roles in one business area, over about 6 to 8 weeks."],
+["Some roles flagged, but priorities are unclear","Critical role review","Stages 1 to 2","A prioritised role list and a clear view of gaps in interim cover.","A good first step: agree which roles would hurt most if they were empty tomorrow."],
+["We know our critical roles and possible successors","Independent readiness review","Stages 3 to 5, as needed","Agreed role criteria, an evidence-based view of readiness and the gaps to address.","A good first step: check what evidence you already have, so we only assess where it is needed."],
+["Readiness is agreed, but development plans are missing","Successor development planning","Stage 6","90-day plans with stretch assignments, named observers and review dates.","A good first step: pick the successors closest to ready and design their first assignment."],
+["We already have a succession plan in use","Succession review support","Stage 7","A facilitated review with updated actions and readiness.","A good first step: bring your current plan, and we review what has moved since it was written."]];
+const pk=document.getElementById('picker'),pkO=document.getElementById('pk-opts'),pkR=document.getElementById('pk-res');
+PK.forEach(d=>{const b=document.createElement('button');b.type='button';b.className='pk-o';b.textContent=d[0];b.setAttribute('aria-pressed','false');
+b.addEventListener('click',()=>{pkO.querySelectorAll('.pk-o').forEach(x=>x.setAttribute('aria-pressed','false'));b.setAttribute('aria-pressed','true');
+pkR.innerHTML='<p class="pk-lab">A good fit for you</p><p class="pk-svc"></p><p class="pk-st"></p><p class="pk-txt"><b>You receive:</b> <span></span></p><p class="pk-first"></p><a class="button" href="mailto:may@pointofview-pov.com?subject='+encodeURIComponent('Succession planning: '+d[0])+'">Discuss this with May →</a>';
+pkR.querySelector('.pk-svc').textContent=d[1];pkR.querySelector('.pk-st').textContent=d[2];pkR.querySelector('.pk-txt span').textContent=d[3];pkR.querySelector('.pk-first').textContent=d[4];pkR.hidden=false;});pkO.appendChild(b);});
+pk.hidden=false;
 </script>
 </body></html>
