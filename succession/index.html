@@ -85,7 +85,27 @@ table.map td:first-child{font-family:'Playfair Display',Georgia,serif;font-size:
 .pk-txt{font-size:15px;color:var(--ink);margin-top:12px}
 .pk-first{font-size:14px;margin-top:8px}
 .pk-res .button{margin-top:16px}
-.pk-all{font-size:13px;margin-top:22px}
+.pk-jr{position:relative;height:100px;margin:18px 6px 4px}
+.pk-line{position:absolute;left:4%;right:4%;top:70px;height:4px;background:#e3d3c9;border-radius:2px}
+.pk-fill{position:absolute;top:70px;height:4px;background:var(--terra);border-radius:2px;transition:left 1.1s cubic-bezier(.3,.8,.3,1),width 1.1s cubic-bezier(.3,.8,.3,1)}
+.pk-dot{position:absolute;top:58px;width:28px;height:28px;margin-left:-14px;border-radius:50%;background:#fff;border:2px solid #d8c4b8;font-size:12px;font-weight:600;color:#9a8a80;display:flex;align-items:center;justify-content:center;transition:background .4s,border-color .4s,color .4s}
+.pk-dot.in{background:var(--terra);border-color:var(--terra);color:#fff}
+.pk-chair{position:absolute;top:0;width:25px;height:auto;margin-left:-12.5px;transition:left 1.4s cubic-bezier(.3,.8,.3,1);transform-origin:50% 90%}
+.pk-chair.go{animation:pkWob 1.4s ease-in-out}
+@keyframes pkWob{0%,100%{transform:rotate(0)}25%{transform:rotate(-6deg)}60%{transform:rotate(3deg)}}
+.pk-names{display:flex;justify-content:space-between;font-size:11px;line-height:1.3;color:#9a8a80;margin:0 0 12px}
+.pk-names span{width:14.28%;text-align:center}.pk-names span.in{color:var(--terra);font-weight:600}
+.pk-st{margin-top:0!important}
+@media(max-width:560px){.pk-names{display:none}.pk-jr{margin-bottom:10px}}
+@media(prefers-reduced-motion:reduce){.pk-chair,.pk-fill{transition:none}.pk-chair.go{animation:none}}
+.pk-compare{margin-top:22px;max-width:100%}
+.pk-compare summary{display:inline-flex;align-items:center;gap:8px;cursor:pointer;font-size:14px;font-weight:600;color:var(--terra);list-style:none;padding:6px 0}
+.pk-compare summary::-webkit-details-marker{display:none}
+.pk-compare summary::after{content:"";width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-3px);transition:transform .2s}
+.pk-compare[open] summary::after{transform:rotate(-135deg) translateY(-1px)}
+.pk-compare summary:hover{text-decoration:underline;text-underline-offset:4px}
+.pk-compare summary:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+.pk-compare .opts{margin-top:14px}
 @media(prefers-reduced-motion:reduce){.pk-res{animation:none}}
 @media(max-width:760px){.picker{padding:22px 18px}.pk-o{border-radius:14px;padding:11px 16px}}
 .quote{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:clamp(22px,2.4vw,28px);color:var(--terra);margin-top:16px}
@@ -189,15 +209,18 @@ footer{padding:30px 0;font-size:12px;color:var(--muted)}footer .wrap{display:fle
 </div></div></section>
 
 <section class="section" id="ways"><div class="wrap"><div class="eyebrow">Ways to work together</div><h2>Start with the next decision your team needs to make.</h2><p class="intro">You don’t need to start from stage one. POV can join wherever you are now.</p>
-<div class="picker" id="picker" hidden><p class="pk-q">Where is your organisation today?</p><p class="pk-sub">Tap the one closest to you.</p><div class="pk-opts" id="pk-opts"></div><div class="pk-res" id="pk-res" hidden aria-live="polite"></div></div>
-<p class="pk-all">All five starting points:</p>
+<div class="picker" id="picker" hidden><p class="pk-q">Where is your organisation today?</p><p class="pk-sub">Tap the one closest to you.</p><div class="pk-opts" id="pk-opts"></div><div class="pk-res" id="pk-res" hidden aria-live="polite"><p class="pk-lab">A good fit for you</p><p class="pk-svc" id="pk-svc"></p>
+<div class="pk-jr" id="pk-jr" role="img"><span class="pk-line"></span><span class="pk-fill" id="pk-fill"></span><svg class="pk-chair" id="pk-chair" viewBox="320 160 360 760" aria-hidden="true"><g stroke="#2c2a26" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"><line x1="500" y1="690" x2="500" y2="800"/><path d="M500 800 L360 860 M500 800 L640 860" fill="none"/><circle cx="360" cy="868" r="26" fill="#fff"/><circle cx="640" cy="868" r="26" fill="#fff"/><rect x="390" y="180" width="220" height="400" rx="70" fill="#f0b429"/><rect x="350" y="570" width="300" height="90" rx="36" fill="#f0b429"/></g></svg></div>
+<div class="pk-names" id="pk-names" aria-hidden="true"></div>
+<p class="pk-st" id="pk-st"></p><p class="pk-txt"><b>You receive:</b> <span id="pk-rcv"></span></p><p class="pk-first" id="pk-first"></p><a class="button" id="pk-btn" href="#contact">Discuss this with May →</a></div></div>
+<details class="pk-compare" id="pk-compare"><summary>Compare all five starting points</summary>
 <div class="opts">
 <article class="opt"><div><span class="mini">Where you are now</span><p class="where">No succession plan yet</p></div><div><h3>Full succession planning</h3><p class="st">Stages 1–7</p></div><p class="what">Priority roles, successor readiness, development plans and a review schedule. Can start as a pilot in one business area.</p></article>
 <article class="opt"><div><span class="mini">Where you are now</span><p class="where">Some roles flagged, priorities unclear</p></div><div><h3>Critical role review</h3><p class="st">Stages 1–2</p></div><p class="what">A prioritised role list and a clear view of gaps in interim cover.</p></article>
 <article class="opt"><div><span class="mini">Where you are now</span><p class="where">Critical roles and potential successors identified</p></div><div><h3>Independent readiness review</h3><p class="st">Stages 3–5 as needed</p></div><p class="what">Agreed role criteria, an evidence-based view of readiness and the gaps to address.</p></article>
 <article class="opt"><div><span class="mini">Where you are now</span><p class="where">Readiness agreed, development plans needed</p></div><div><h3>Successor development planning</h3><p class="st">Stage 6</p></div><p class="what">90-day plans with stretch assignments, named observers and review dates.</p></article>
 <article class="opt"><div><span class="mini">Where you are now</span><p class="where">A succession plan is already in use</p></div><div><h3>Succession review support</h3><p class="st">Stage 7</p></div><p class="what">A facilitated review with updated actions and readiness.</p></article>
-</div>
+</div></details>
 <div class="pilot"><div><div class="eyebrow" style="margin-bottom:10px">Start small</div><h3>A pilot in one business area.</h3><p>Around 3–5 priority roles over roughly 6–8 weeks. You finish with an approved role shortlist and profiles, a succession map, development and cover actions, and a tracker with owners and review dates.</p></div>
 <div class="weeks">
 <div class="wk"><b>Weeks 1–2</b><p>Confirm scope, screen roles and draft success profiles.<span>You: sponsor kickoff and role-owner interviews.</span></p></div>
@@ -231,16 +254,31 @@ toggle.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expand
 navigation.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&navigation.classList.contains('open')){closeMenu();toggle.focus();}});
 const PK=[
-["No succession plan yet","Full succession planning","Stages 1 to 7","Priority roles, successor readiness, development plans and a review schedule.","A good first step: a pilot with 3 to 5 critical roles in one business area, over about 6 to 8 weeks."],
-["Some roles flagged, but priorities are unclear","Critical role review","Stages 1 to 2","A prioritised role list and a clear view of gaps in interim cover.","A good first step: agree which roles would hurt most if they were empty tomorrow."],
-["We know our critical roles and possible successors","Independent readiness review","Stages 3 to 5, as needed","Agreed role criteria, an evidence-based view of readiness and the gaps to address.","A good first step: check what evidence you already have, so we only assess where it is needed."],
-["Readiness is agreed, but development plans are missing","Successor development planning","Stage 6","90-day plans with stretch assignments, named observers and review dates.","A good first step: pick the successors closest to ready and design their first assignment."],
-["We already have a succession plan in use","Succession review support","Stage 7","A facilitated review with updated actions and readiness.","A good first step: bring your current plan, and we review what has moved since it was written."]];
+["No succession plan yet","Full succession planning",1,7,"Stages 1 to 7","Priority roles, successor readiness, development plans and a review schedule.","A good first step: a pilot with 3 to 5 critical roles in one business area, over about 6 to 8 weeks."],
+["Some roles flagged, but priorities are unclear","Critical role review",1,2,"Stages 1 to 2","A prioritised role list and a clear view of gaps in interim cover.","A good first step: agree which roles would hurt most if they were empty tomorrow."],
+["We know our critical roles and possible successors","Independent readiness review",3,5,"Stages 3 to 5, as needed","Agreed role criteria, an evidence-based view of readiness and the gaps to address.","A good first step: check what evidence you already have, so we only assess where it is needed."],
+["Readiness is agreed, but development plans are missing","Successor development planning",6,6,"Stage 6","90-day plans with stretch assignments, named observers and review dates.","A good first step: pick the successors closest to ready and design their first assignment."],
+["We already have a succession plan in use","Succession review support",7,7,"Stage 7","A facilitated review with updated actions and readiness.","A good first step: bring your current plan, and we review what has moved since it was written."]];
+const STG=["Scope","Critical roles","Success profiles","Find successors","Readiness","Develop","Review"];
 const pk=document.getElementById('picker'),pkO=document.getElementById('pk-opts'),pkR=document.getElementById('pk-res');
+const jr=document.getElementById('pk-jr'),jn=document.getElementById('pk-names'),jc=document.getElementById('pk-chair'),jf=document.getElementById('pk-fill');
+const jp=n=>4+(n-1)*(92/6);
+STG.forEach((t,k)=>{const d=document.createElement('span');d.className='pk-dot';d.textContent=k+1;d.style.left=jp(k+1)+'%';jr.appendChild(d);const n=document.createElement('span');n.textContent=t;jn.appendChild(n);});
+const still=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 PK.forEach(d=>{const b=document.createElement('button');b.type='button';b.className='pk-o';b.textContent=d[0];b.setAttribute('aria-pressed','false');
-b.addEventListener('click',()=>{pkO.querySelectorAll('.pk-o').forEach(x=>x.setAttribute('aria-pressed','false'));b.setAttribute('aria-pressed','true');
-pkR.innerHTML='<p class="pk-lab">A good fit for you</p><p class="pk-svc"></p><p class="pk-st"></p><p class="pk-txt"><b>You receive:</b> <span></span></p><p class="pk-first"></p><a class="button" href="mailto:may@pointofview-pov.com?subject='+encodeURIComponent('Succession planning: '+d[0])+'">Discuss this with May →</a>';
-pkR.querySelector('.pk-svc').textContent=d[1];pkR.querySelector('.pk-st').textContent=d[2];pkR.querySelector('.pk-txt span').textContent=d[3];pkR.querySelector('.pk-first').textContent=d[4];pkR.hidden=false;});pkO.appendChild(b);});
+b.addEventListener('click',()=>{pkO.querySelectorAll('.pk-o').forEach(x=>x.setAttribute('aria-pressed','false'));b.setAttribute('aria-pressed','true');pkR.hidden=false;
+document.getElementById('pk-svc').textContent=d[1];document.getElementById('pk-st').textContent=d[4];document.getElementById('pk-rcv').textContent=d[5];document.getElementById('pk-first').textContent=d[6];
+document.getElementById('pk-btn').href='mailto:may@pointofview-pov.com?subject='+encodeURIComponent('Succession planning: '+d[0]);
+jr.setAttribute('aria-label','Covers '+d[4].toLowerCase()+' of the seven-stage process');
+const a=d[2],z=d[3];
+jr.querySelectorAll('.pk-dot').forEach((x,k)=>x.classList.toggle('in',k+1>=a&&k+1<=z));
+[...jn.children].forEach((x,k)=>x.classList.toggle('in',k+1>=a&&k+1<=z));
+if(still){jc.style.left=jp(z)+'%';jf.style.left=jp(a)+'%';jf.style.width=(jp(z)-jp(a))+'%';return;}
+jc.style.transition='none';jf.style.transition='none';jc.style.left=jp(a)+'%';jf.style.left=jp(a)+'%';jf.style.width='0%';jc.classList.remove('go');void jc.offsetWidth;
+jc.style.transition='';jf.style.transition='';
+requestAnimationFrame(()=>{jc.classList.add('go');jc.style.left=jp(z)+'%';jf.style.width=(jp(z)-jp(a))+'%';});});
+pkO.appendChild(b);});
 pk.hidden=false;
+const cmp=document.getElementById('pk-compare');window.addEventListener('beforeprint',()=>{cmp.open=true;});
 </script>
 </body></html>
